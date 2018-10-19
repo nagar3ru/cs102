@@ -52,7 +52,7 @@ def decrypt_caesar(ciphertext: str):
 
     plaintext = [0] * len(ciphertext)
 
-    case = {
+    case2 = {
         'a': 'x',
         'b': 'y',
         'c': 'z',
@@ -65,8 +65,8 @@ def decrypt_caesar(ciphertext: str):
     for i in range(len(ciphertext)):
         if ord('D') <= ord(ciphertext[i]) <= ord('Z') or ord('d') <= ord(ciphertext[i]) <= ord('z'):
             plaintext[i] = chr(ord(ciphertext[i]) - 3)
-        elif 88 <= ord(ciphertext[i]) <= 90 or 120 <= ord(ciphertext[i]) <= 122:
-            plaintext[i] = case[ciphertext[i]]
+        elif ord('a') <= ord(ciphertext[i]) <= ord('c') or ord('A') <= ord(ciphertext[i]) <= ord('C'):
+            plaintext[i] = case2[ciphertext[i]]
     plaintext = ''.join(plaintext)
 
     return plaintext
