@@ -1,4 +1,4 @@
-def encrypt_caesar(plaintext: str):
+def encrypt_caesar(plaintext: str) -> str:
 
     """
     >>> encrypt_caesar("PYTHON")
@@ -13,7 +13,7 @@ def encrypt_caesar(plaintext: str):
 
     ciphertext = [0] * len(plaintext)
 
-    case = {
+    case: dict = {
         'x': 'a',
         'y': 'b',
         'z': 'c',
@@ -37,7 +37,7 @@ print(encrypt_caesar(input()))
 
 
 
-def decrypt_caesar(ciphertext: str):
+def decrypt_caesar(ciphertext: str) -> str:
 
     """
     >>> decrypt_caesar("SBWKRQ")
@@ -52,7 +52,7 @@ def decrypt_caesar(ciphertext: str):
 
     plaintext = [0] * len(ciphertext)
 
-    case2 = {
+    case2: dict = {
         'a': 'x',
         'b': 'y',
         'c': 'z',
