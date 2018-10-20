@@ -1,4 +1,5 @@
-def encrypt_vigenere(plaintext, keyword):
+def encrypt_vigenere(plaintext: list, keyword: list) -> str:
+
     """
     >>> encrypt_vigenere("PYTHON", "A")
     'PYTHON'
@@ -7,8 +8,17 @@ def encrypt_vigenere(plaintext, keyword):
     >>> encrypt_vigenere("ATTACKATDAWN", "LEMON")
     'LXFOPVEFRNHR'
     """
-    # PUT YOUR CODE HERE
+    keyword *= len(plaintext) // len(keyword) + 1
+    ciphertext = ''
+    for i, j in enumerate(plaintext):
+        g = ord(j) + ord(keyword[i])
+        ciphertext += chr(g%26 + ord('A'))
+    ciphertext = str(ciphertext)
+
     return ciphertext
+
+
+print(encrypt_vigenere(input(), input()))
 
 
 def decrypt_vigenere(ciphertext, keyword):
@@ -22,3 +32,4 @@ def decrypt_vigenere(ciphertext, keyword):
     """
     # PUT YOUR CODE HERE
     return plaintext
+    """
