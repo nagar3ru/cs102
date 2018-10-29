@@ -36,7 +36,6 @@ def encrypt_caesar(plaintext: str) -> str:
 print(encrypt_caesar(input()))
 
 
-
 def decrypt_caesar(ciphertext: str) -> str:
 
     """
@@ -70,5 +69,6 @@ def decrypt_caesar(ciphertext: str) -> str:
     plaintext = ''.join(plaintext)
 
     return plaintext
+
 
 print(decrypt_caesar(input()))
