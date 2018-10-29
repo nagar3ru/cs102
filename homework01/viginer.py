@@ -1,5 +1,14 @@
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
 
+    """
+        >>> encrypt_vigenere("PYTHON", "A")
+        'PYTHON'
+        >>> encrypt_vigenere("python", "a")
+        'python'
+        >>> encrypt_vigenere("ATTACKATDAWN", "LEMON")
+        'LXFOPVEFRNHR'
+        """
+
     keyword *= len(plaintext) // len(keyword) +1
 
     ciphertext = ''
@@ -21,7 +30,6 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
         else:
             ciphertext += j
 
-
     return ciphertext
 
 
@@ -29,6 +37,15 @@ print(encrypt_vigenere(input(), input()))
 
 
 def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
+
+    """
+       >>> decrypt_vigenere("PYTHON", "A")
+       'PYTHON'
+       >>> decrypt_vigenere("python", "a")
+       'python'
+       >>> decrypt_vigenere("LXFOPVEFRNHR", "LEMON")
+       'ATTACKATDAWN'
+       """
 
     plaintext = ""
     for i, j in enumerate(ciphertext):
