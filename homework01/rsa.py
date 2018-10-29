@@ -1,5 +1,6 @@
 import random
 
+
 def is_prime(n: int) -> bool:
     """
     >>> is_prime(2)
@@ -14,6 +15,7 @@ def is_prime(n: int) -> bool:
         if n % i == 0:
             return False
     return True
+
 
 def generate_keypair(p: int, q: int) -> tuple:
     if not (is_prime(p) and is_prime(q)):
@@ -41,6 +43,7 @@ def generate_keypair(p: int, q: int) -> tuple:
     # Public key is (e, n) and private key is (d, n)
     return ((e, n), (d, n))
 
+
 def gcd(a: int, b: int) -> int:
     """
     >>> gcd(12, 15)
@@ -55,6 +58,7 @@ def gcd(a: int, b: int) -> int:
             b %= a
 
     return a + b
+
 
 def multiplicative_inverse(e: int, phi: int) -> int:
     """
@@ -75,6 +79,7 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     d = v[0][-1] % v[0][0]
     return d
 
+
 def encrypt(pk: int, plaintext: str) -> list:
     # Unpack the key into it's components
     key, n = pk
@@ -84,7 +89,8 @@ def encrypt(pk: int, plaintext: str) -> list:
     # Return the array of bytes
     return cipher
 
-def decrypt(pk: int, ciphertext: str) -> str:
+
+def decrypt(pk: int, ciphertext: list) -> str:
 
     # Unpack the key into its components
     key, n = pk
@@ -92,6 +98,7 @@ def decrypt(pk: int, ciphertext: str) -> str:
     plain = [chr((char ** key) % n) for char in ciphertext]
     # Return the array of bytes as a string
     return ''.join(plain)
+
 
 if __name__ == '__main__':
     p = int(input("Enter a prime number: "))
