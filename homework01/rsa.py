@@ -1,8 +1,7 @@
 import random
 
-def is_prime(n):
+def is_prime(n: int) -> bool:
     """
-    Tests to see if a number is prime.
     >>> is_prime(2)
     True
     >>> is_prime(11)
@@ -12,7 +11,7 @@ def is_prime(n):
     """
     divisor = 1
     for i in range(2, n):
-        if (n % i == 0):
+        if n % i == 0:
             return False
     return True
 
@@ -44,7 +43,10 @@ def generate_keypair(p: int, q: int) -> tuple:
 
 def gcd(a: int, b: int) -> int:
     """
-    НОД
+    >>> gcd(12, 15)
+    3
+    >>> gcd(3, 7)
+    1
     """
     while a != 0 and b != 0:
         if a > b:
@@ -56,8 +58,6 @@ def gcd(a: int, b: int) -> int:
 
 def multiplicative_inverse(e: int, phi: int) -> int:
     """
-    Euclid's extended algorithm for finding the multiplicative
-    inverse of two numbers.
     >>> multiplicative_inverse(7, 40)
     23
     """
@@ -85,6 +85,7 @@ def encrypt(pk: int, plaintext: str) -> list:
     return cipher
 
 def decrypt(pk: int, ciphertext: str) -> str:
+
     # Unpack the key into its components
     key, n = pk
     # Generate the plaintext based on the ciphertext and key using a^b mod m
@@ -108,3 +109,4 @@ if __name__ == '__main__':
     print("Decrypting message with public key ", public, ".")
     print("Your message is:")
     print(decrypt(public, encrypted))
+
